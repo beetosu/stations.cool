@@ -1,0 +1,12 @@
+.stationPlayer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.audioPlayer {
+    margin: 16px 0;
+}
