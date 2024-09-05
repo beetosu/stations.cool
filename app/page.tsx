@@ -18,10 +18,14 @@ export default function Home() {
   }
 
   return (
-    <main className={styles.main}>
-      <h1>stations.cool 📻</h1>
-      <button onClick={randomizeStation}>Random Station!</button>
-      <StationPlayer currentStation={Stations[currentStationIdx]} />
-    </main>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1>stations.cool 📻</h1>
+        <button onClick={randomizeStation}>Random Station!</button>
+      </header>
+      <main className={styles.main}>
+        <StationPlayer currentStation={Stations[currentStationIdx]} />
+      </main>
+    </div>
   );
 }
