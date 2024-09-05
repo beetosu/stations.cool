@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import StationPlayer from "./components/station-player/station-player";
+import Stations from "./common/stations";
 
 type Station = {
   name: string;
@@ -12,13 +13,7 @@ type Station = {
 }
 
 export default function Home() {
-  let currentStation: Station = {
-    name: 'WRUV',
-    fm: '90.1',
-    location: 'Burlington, VT',
-    audioUrl: 'http://icecast.uvm.edu:8005/wruv_fm_128',
-    url: 'http://wruv.org/'
-  }
+  let currentStation = Stations[Math.floor(Math.random() * Stations.length)]
 
   return (
     <main className={styles.main}>
