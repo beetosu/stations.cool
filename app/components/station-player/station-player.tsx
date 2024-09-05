@@ -11,7 +11,7 @@ export default function StationPlayer({ currentStation }: StationPlayerProps) {
             <a href={currentStation.url}>Website</a> | <a href={currentStation.donationUrl}>Donate</a>
         </div>) : (<a href={currentStation.url}>Website</a>)
     }
-
+    debugger;
     return (
     <div className={styles.stationPlayer}>
         <h2>{currentStation.name} ({currentStation.fm} FM)</h2>
