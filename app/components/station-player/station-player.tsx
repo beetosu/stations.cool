@@ -6,9 +6,11 @@ type StationPlayerProps = {
 }
 
 export default function StationPlayer({ currentStation }: StationPlayerProps) {
+    const fullName = `${currentStation.name} (${currentStation.fm} FM)`
+    document.title = fullName;
     return (
     <div className={styles.stationPlayer + ' block'}>
-        <h2>{currentStation.name} ({currentStation.fm} FM)</h2>
+        <h2>{fullName}</h2>
         <p>{currentStation.location}</p>
         <audio className={styles.audioPlayer} controls autoPlay preload="auto" src={currentStation.audioUrl}></audio>
         <div>
