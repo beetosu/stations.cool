@@ -10,7 +10,7 @@ export default function StationPlayer({ currentStation }: StationPlayerProps) {
     <div className={styles.stationPlayer}>
         <h2>{currentStation.name} ({currentStation.fm} FM)</h2>
         <p>{currentStation.location}</p>
-        <audio className={styles.audioPlayer} controls src={currentStation.audioUrl}></audio>
+        <audio className={styles.audioPlayer} controls autoPlay preload="auto" src={currentStation.audioUrl}></audio>
         <div>
             <a href={currentStation.url}>Website</a>{currentStation.donationUrl ? ' | ' : ''}{currentStation.donationUrl ? (<a href={currentStation.donationUrl}>Donate</a>) : ''}
         </div>
