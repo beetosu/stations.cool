@@ -7,7 +7,7 @@ type StationPlayerProps = {
 
 export default function StationPlayer({ currentStation }: StationPlayerProps) {
     return (
-    <div className={styles.stationPlayer}>
+    <div className={styles.stationPlayer + ' block'}>
         <h2>{currentStation.name} ({currentStation.fm} FM)</h2>
         <p>{currentStation.location}</p>
         <audio className={styles.audioPlayer} controls autoPlay preload="auto" src={currentStation.audioUrl}></audio>
