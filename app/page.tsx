@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import StationPlayer from "./components/station-player/station-player";
 import Stations from "./common/stations";
 import { useEffect, useState } from "react";
+import NextStationButton from "./components/next-station-button/next-station-button";
 
 export default function Home() {
   const [currentStationIdx, updateCurrentStation] = useState<number | undefined>(undefined);
@@ -22,6 +23,16 @@ export default function Home() {
     randomizeStation();
   }, [])
 
+  function leftStationIdx(): number {
+    if (currentStationIdx === undefined) return -1;
+    return currentStationIdx !== 0 ? currentStationIdx - 1 : Stations.length - 1;
+  }
+
+  function rightStationIdx(): number {
+    if (currentStationIdx === undefined) return -1;
+    return currentStationIdx < (Stations.length - 1) ? currentStationIdx + 1 : 0;
+  }
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -29,7 +40,9 @@ export default function Home() {
         <button onClick={randomizeStation}>Random Station!</button>
       </header>
       <main className={styles.main}>
+        {currentStationIdx !== undefined ? <NextStationButton stationIdx={leftStationIdx()} updateStation={updateCurrentStation}/> : ''}
         {currentStationIdx !== undefined ? (<StationPlayer currentStation={Stations[currentStationIdx ?? 0]} />) : ''}
+        {currentStationIdx !== undefined ? <NextStationButton stationIdx={rightStationIdx()} updateStation={updateCurrentStation}/> : ''}
       </main>
     </div>
   );
